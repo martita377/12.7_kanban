@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css?family=Lato')
+
+$cardListColor: rgba(163, 180, 16, 0.8)
+
+$fontColor: #fff
+$buttonColor: #677104
+$columnColor: #DBD1EC
+$cardListColor: #AEBA3B
+$cardColor: #8972B4
+$deleteBtnColor: rgba(0,0,0,0.4)
+$btnHover: #A8B638
+
+body 
+  color: $fontColor
+  font-family: 'Lato', sans-serif
+  background: #ccc url("../img/board.jpg") 0/cover
+  padding-top: 50px
+  
+* 
+  box-sizing: border-box
+
+.ui-sortable 
+  min-height: 80px
+
+.btn-delete 
+  position: absolute
+  right: 0
+  top: 0
+  width: 22px
+  height: 22px
+  border: 0
+  border-radius: 3px
+  background-color: $deleteBtnColor
+  color: white
+
+/* BOARD */
+.board
+  text-align: center
+  h1 
+    font-size: 40px
+    margin-left: 8px
+    text-align: center
+    text-shadow: 3px 4px 4px $buttonColor
+  .create-column
+    background: $buttonColor
+    color: $fontColor
+    letter-spacing: 1px 
+    margin: 50px auto
+    padding: 5px 10px
+    font-size: 20px
+    border-radius: 3px
+    transition: all 0.5s
+    span
+      cursor: pointer
+      display: inline-block
+      position: relative
+      transition: 0.5s
+      &:after
+        content: '\00bb'
+        position: absolute
+        opacity: 0
+        top: 0
+        right: -20px
+        transition: 0.5s
+    &:hover
+      span
+        padding-right: 25px
+        &:after
+          opacity: 1
+          right: 0
+
+.column-container 
+  display: flex
+  justify-content: center
+  flex-direction: row
+  flex-wrap: wrap
+
+/* COLUMN */
+.column 
+  border-radius: 5px
+  order: 1
+  min-width: 300px
+  min-height: 50vh
+  background-color: $columnColor
+  margin-left: 8px
+  list-style: none
+  position: relative
+  .column-title
+    color: #674C99
+    text-align: center
+    text-decoration: underline
+
+.column-add-card 
+  background: $buttonColor
+  border-radius: 5px
+  color: $fontColor
+  cursor: pointer
+  margin: 10px
+  padding: 5px 10px
+  display: block
+  position: relative
+  transition-duration: 0.4s
+  overflow: hidden
+  box-shadow: 2px 4px #999
+  &:hover
+    background: $btnHover
+  &:active
+    background: $btnHover
+    box-shadow: 0 2px #666
+    transform: translateY(4px)
+
+/* CARD */
+.card 
+  box-sizing: border-box
+  border-radius: 5px
+  background: $cardColor
+  display: block
+  height: 60px
+  margin-bottom: 5px
+  padding: 4px
+  overflow: hidden
+  position: relative
+
+.card-list 
+  background: $cardListColor
+  border-radius: 5px
+  min-height: 300px
+  list-style: none
+  margin: 5px
+  padding: 5px
+
+.card-description 
+  margin: 5px 0
+
+.card-placeholder 
+  box-sizing: border-box
+  display: block
+  height: 60px
+  margin-bottom: 5px
+  background-color: $columnColor
+
